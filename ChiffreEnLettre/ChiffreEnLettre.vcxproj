@@ -139,7 +139,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AfficherLettres.c" />
     <ClCompile Include="ChiffreEnLettre.c" />
+    <ClCompile Include="SaisirNombre.c" />
+    <ClCompile Include="TraitementNombre.c" />
+    <ClCompile Include="Utilitaire.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AfficherLettres.h" />
+    <ClInclude Include="TraitementNombre.h" />
+    <ClInclude Include="SaisirNombre.h" />
+    <ClInclude Include="Utilitaire.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
