@@ -6,19 +6,28 @@
 
 int main()
 {
-	double nombre = saisirNombre();
-	printf("%f\n", nombre);
+	double nombre;
+	char* mots;
 
-	int length;
-	int* test = separer(nombre, 3, &length);
-
-	for (int i = 0; i < length; i++)
+	// Test de stress
+	/*for (int i = 0; i < 100; i++)
 	{
-		printf("%d\n", test[i]);
+		mots = traitementNombre(i);
+		afficherLettres(mots);
 	}
+	for (int i = 101; i < 1000; i += 100)
+	{
+		mots = traitementNombre(i);
+		afficherLettres(mots);
+	}
+	for (int i = 1001; i < 1000000000000; i *= 1000)
+	{
+		mots = traitementNombre(i);
+		afficherLettres(mots);
+	}
+	return;*/
 
-	char* tets = joindre(" ", "Let's", "go");
-	printf("%s\n", tets);
-
-	afficherLettres("Let's go");
+	nombre = saisirNombre();
+	mots = traitementNombre(nombre);
+	afficherLettres(mots);
 }

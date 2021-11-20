@@ -23,7 +23,11 @@ double saisirNombre() {
     double nombre;
 
     printf("Saisissez un montant a afficher en lettres : ");
+#if defined(_MSC_VER) // MSVC (Visual Studio)
+    scanf_s("%lf", &nombre);
+#else // GCC or else
     scanf("%lf", &nombre);
+#endif
 
     if (!verificationNombre(nombre)) // Si le nombre ne passe pas la vérification
     {

@@ -50,6 +50,7 @@ char* joindre(char* separateur, char* chaineUn, char* chaineDeux)
 	memcpy(chaineJointe, chaineUn, tailleUn);
 	memcpy(chaineJointe + tailleUn, separateur, tailleSeparateur);
 	memcpy(chaineJointe + tailleUn + tailleSeparateur, chaineDeux, tailleDeux);
+	memcpy(chaineJointe + tailleUn + tailleSeparateur + tailleDeux, "\0", 2); // malloc nous donne plus que ce que on lui demande parfois
 
 	return chaineJointe;
 }
