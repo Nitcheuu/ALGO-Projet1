@@ -1,35 +1,42 @@
 #include <math.h>
 #include <string.h>
+#include <stdio.h>
 #include <stdlib.h>
 
-void nombreDeChiffres(int valeur)
+int nombreDeChiffres(int valeur)
 {
 	int compt = 0;
 
-	do
+	while (valeur != 0)
 	{
 		valeur /= 10;
 		compt++;
-	} while (valeur != 0);
+	}
 
 	return compt;
 }
 
 
 
-int* separer(int valeur, int taille){
-    int nombreChiffres = NombreDeChiffres(valeur);
+int* separer(int valeur, int tranche, int* taille) {
+    int nombreChiffres = nombreDeChiffres(valeur);
     int* tableau = malloc(nombreChiffres);
     int puissance;
     int i = 0;
-    int n;
-    
-    puissance = pow(10, taille);
+
+	if (tableau == NULL) {
+		fprintf(stderr, "Separer:Mémoire indisponible.\n");
+		exit(2);
+	}
+
+    puissance = pow(10, tranche);
     while(valeur != 0) {
         tableau[i] = valeur % puissance;
-        n /= puissance;
+        valeur /= puissance;
         i ++;
     }
+
+	*taille = i;
     return tableau;
 }
 
@@ -42,7 +49,7 @@ char* joindre(char* separateur, char* chaineUn, char* chaineDeux)
 
 	memcpy(chaineJointe, chaineUn, tailleUn);
 	memcpy(chaineJointe + tailleUn, separateur, tailleSeparateur);
-	memcpy(chaineJointe + tailleUn + tailleDeux, chaineDeux, tailleDeux);
+	memcpy(chaineJointe + tailleUn + tailleSeparateur, chaineDeux, tailleDeux);
 
 	return chaineJointe;
 }

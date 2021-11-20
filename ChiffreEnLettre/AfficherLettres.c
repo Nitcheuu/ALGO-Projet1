@@ -1,4 +1,5 @@
 #include <stdio.h>
-void AfficherLettres(char* nombre){
-    printf("%s", nombre);
+
+void afficherLettres(char* nombre){
+    printf("Le nombre en lettres est : %s\n", nombre);
 }

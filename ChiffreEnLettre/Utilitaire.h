@@ -1,5 +1,7 @@
 #pragma once
 
-void nombreDeChiffres(int);
+int nombreDeChiffres(int);
 
-int* separer(int valeur, int taille);
+int* separer(int, int, int*);
+
+char* joindre(char*, char*, char*);
