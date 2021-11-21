@@ -1,3 +1,3 @@
 #pragma once
 
-char* traitementNombre (int);
+char* traitementNombre (double);
