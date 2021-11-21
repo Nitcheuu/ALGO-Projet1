@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include "Utilitaire.h"
 
-char* tableauUnite[10] = {"", "un", "deux", "trois", "quatre", "cinq", "six", "sept", "huit", "neuf" };
-char* tableauDizaine[9] = { "dix", "vingt", "trente",  "quarante", "cinquante", "soixante", "soixante", "quatre vingt", "quatre vingt" };
-char* tableauDixADixNeuf[10] = { "dix", "onze", "douze", "treize", "quatorze", "quinze", "seize", "dix sept", "dix huit", "dix neuf" };
-char* quantifieurSingulier[4] = {"", " mille ", " million", " milliard "};
-char* quantifieurPluriel[4] = {"",  " mille ", " millions ", " milliards "};
+char* tableauUnite[10] = {"", "un ", "deux ", "trois ", "quatre ", "cinq ", "six ", "sept ", "huit ", "neuf " };
+char* tableauDizaine[9] = { "dix ", "vingt ", "trente ",  "quarante ", "cinquante ", "soixante ", "soixante ", "quatre vingt ", "quatre vingt " };
+char* tableauDixADixNeuf[10] = { "dix ", "onze ", "douze ", "treize ", "quatorze ", "quinze ", "seize ", "dix sept ", "dix huit ", "dix neuf " };
+char* quantifieurSingulier[4] = {"", "mille ", "million ", "milliard "};
+char* quantifieurPluriel[4] = {"",  "mille ", "millions ", "milliards "};
 
 char* traitementUnite(int unite)
 {
@@ -31,12 +31,12 @@ char* traitementDizaine(int nombre)
         if ((nombre >= 20 && nombre < 100) && ((nombre > 69 && nombre < 80) || (nombre > 89 && nombre < 100))) // 20 à 100, 70 à 80, 90 à 100
         {
             if (nombre == 71)
-                return "soixante et onze";
+                return "soixante et onze ";
             return joindre(" ", dizaine, uniteDixADixNeuf);
         }
         if (nombre % 10 == 1 && !(80 < nombre && nombre < 90))
             return joindre("et ", dizaine, unite);
-        return joindre(" ", dizaine, unite);
+        return joindre("", dizaine, unite);
     }
 }
 
@@ -59,12 +59,12 @@ char* traitementCentaine(int nombre, int imax, int i)
 
     if (centaine > 1) {
         if(accordCent(nombre) && i == 0)
-            centaineLettre = joindre(" ", tableauUnite[centaine], "cents");
+            centaineLettre = joindre("", tableauUnite[centaine], "cents ");
         else
-            centaineLettre = joindre(" ", tableauUnite[centaine], "cent");
+            centaineLettre = joindre("", tableauUnite[centaine], "cent ");
     }
     else if(centaine == 1){
-        centaineLettre = "cent";
+        centaineLettre = "cent ";
     }
     else {
         centaineLettre = "";
@@ -81,7 +81,7 @@ char* traitementNombre (double nombre)
     double partieDecimale;
     int* tabNombreATraiter;
     int i_max;
-    char* motsJoint = ""; //VS aime pas quand on peut utiliser une var sans qu'elle soit initiliser (Si partieEntiere = 0)
+    char* motsJoint = ""; //VS aime pas quand on peut utiliser une var sans qu'elle soit initialisé (Si partieEntiere = 0)
     char* nombreEnMots;
     char* quantifieur;
     
@@ -101,7 +101,7 @@ char* traitementNombre (double nombre)
             nombreEnMots = joindre("", nombreEnMots, quantifieur);
             motsJoint = joindre("", nombreEnMots, motsJoint);
         }
-        motsJoint = joindre(" ", motsJoint, "euros");
+        motsJoint = joindre("", motsJoint, "euros");
     }
 
    
@@ -112,7 +112,7 @@ char* traitementNombre (double nombre)
     {
         nombreEnMots = traitementDizaine(partieDecimale * 100);
         // {motsJoint} et {nombreEnMots} centimes
-        char* separateur = partieEntiere == 0 ? "" : " et ";
+        char* separateur = partieEntiere == 0 ? "" : "et ";
         motsJoint = joindre(separateur , motsJoint, nombreEnMots);
         motsJoint = joindre("", motsJoint, "centimes");
     }
