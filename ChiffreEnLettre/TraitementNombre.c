@@ -45,7 +45,7 @@ int accordCent(int entier)
     return entier > 100 && entier % 100 == 0 ? 1 : 0;
 }
 
-char* traitementCentaine(int nombre, int imax, int i)
+char* traitementCentaine(int nombre, int i)
 {
     /*Déclaration des variables*/
     char* centaineLettre;
@@ -97,7 +97,7 @@ char* traitementNombre (double nombre)
     if (partieEntiere > 0) {
         for (int i = 0; i < i_max; i++) // {15} {248} {188} => quinze millions ....
         {
-            nombreEnMots = traitementCentaine(tabNombreATraiter[i], i_max, i); // {15}
+            nombreEnMots = traitementCentaine(tabNombreATraiter[i], i); // {15}
             quantifieur = tabNombreATraiter[i] < 100 ? quantifieurSingulier[i] : quantifieurPluriel[i]; // millions
 
             // {nombreEnMots} {quantifieur} {motsJoint}
