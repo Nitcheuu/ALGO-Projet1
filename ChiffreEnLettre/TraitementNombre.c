@@ -56,19 +56,22 @@ char* traitementCentaine(int nombre, int imax, int i)
 
     /*****************CODE****************/
     // Traitement centaine
-
-    if (centaine > 1) {
-        if(accordCent(nombre) && i == 0)
-            centaineLettre = joindre("", tableauUnite[centaine], "cents ");
-        else
-            centaineLettre = joindre("", tableauUnite[centaine], "cent ");
+    switch (centaine)
+    {
+        case 0: // 000 => 
+            centaineLettre = "";
+            break;
+        case 1: // 100 => cent
+            centaineLettre = "cent ";
+            break;
+        default: // 200, 300, ... => deux cent, trois cent, ... cent
+            if(accordCent(nombre) && i == 0)
+                centaineLettre = joindre("", tableauUnite[centaine], "cents ");
+            else
+                centaineLettre = joindre("", tableauUnite[centaine], "cent ");
+            break;
     }
-    else if(centaine == 1){
-        centaineLettre = "cent ";
-    }
-    else {
-        centaineLettre = "";
-    }
+   
     centaineLettre = joindre("", centaineLettre, traitementDizaine(dizaine));
 
     return centaineLettre;
@@ -103,7 +106,6 @@ char* traitementNombre (double nombre)
         }
         motsJoint = joindre("", motsJoint, "euros");
     }
-
    
 
     // Traitement centime
