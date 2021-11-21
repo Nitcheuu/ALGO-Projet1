@@ -32,7 +32,7 @@ char* traitementDizaine(int nombre)
         {
             if (nombre == 71)
                 return "soixante et onze ";
-            return joindre(" ", dizaine, uniteDixADixNeuf);
+            return joindre("", dizaine, uniteDixADixNeuf);
         }
         if (nombre % 10 == 1 && !(80 < nombre && nombre < 90))
             return joindre("et ", dizaine, unite);
