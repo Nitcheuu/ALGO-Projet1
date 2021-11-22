@@ -2,6 +2,12 @@
 #include <stdlib.h>
 #include "Utilitaire.h"
 
+/// <summary>
+/// VA : Permet de vérifier si le nombre saisi par l'utilisateur est
+/// supporté par le programme ou non
+/// </summary>
+/// <param name="nombre">Nombre saisi par l'utilisateur</param>
+/// <returns>Booléen</returns>
 int verificationNombre(double nombre) {
     int rangeOK;
     int virguleOK;
@@ -17,6 +23,10 @@ int verificationNombre(double nombre) {
     return rangeOK && virguleOK;
 }
 
+/// <summary>
+/// VA : Saisi et controle un nombre saisi par l'utilisateur
+/// </summary>
+/// <returns>Le nombre saisi par l'utilisateur</returns>
 double saisirNombre() {
     double nombre;
 
