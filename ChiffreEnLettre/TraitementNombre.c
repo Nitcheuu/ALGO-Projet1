@@ -150,7 +150,7 @@ char* traitementCentime(double partieDecimale, int partieEntiere, char* motsJoin
 char* traitementNombre (double nombre)
 {
     /*Déclaration des variables*/
-    int partieEntiere;
+    long long int partieEntiere;
     double partieDecimale;
     int* tabNombreATraiter;
     int i_max;

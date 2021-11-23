@@ -8,18 +8,18 @@
 /// </summary>
 /// <param name="nombre">Nombre saisi par l'utilisateur</param>
 /// <returns>Booléen</returns>
-int verificationNombre(double nombre) {
+int verificationNombre(long double nombre) {
     int rangeOK;
     int virguleOK;
-    int partieEntiere;    
-    double partieDecimale;
+    long long int partieEntiere;
+    long double partieDecimale;
 
     partieEntiere = nombre;
     partieDecimale = nombre - partieEntiere;
     // On vérifie que l'intervalle est bien respectée
     rangeOK = nombre > 0 && nombre < 1000000000000 ? 1 : 0;
     // On vérifie que la partie décimale ne dépasse pas le centième
-    virguleOK = nombreDeChiffres((int)partieDecimale * 100) <= 2 && (int)(partieDecimale * 100 - (int)(partieDecimale * 100)) == 0 ? 1 : 0;
+    virguleOK = nombreDeChiffres((long int)partieDecimale * 100) <= 2 && (partieDecimale * 100 - (long int)(partieDecimale * 100)) == 0 ? 1 : 0;
     return rangeOK && virguleOK;
 }
 
@@ -28,11 +28,11 @@ int verificationNombre(double nombre) {
 /// </summary>
 /// <returns>Le nombre saisi par l'utilisateur</returns>
 double saisirNombre() {
-    double nombre;
+    long double nombre;
 
     printf("Saisissez un montant a afficher en lettres : ");
 #if defined(_MSC_VER) // MSVC (Visual Studio)
-    scanf_s("%lf", &nombre);
+    scanf_s("%Lf", &nombre);
 #else // GCC or else
     scanf("%lf", &nombre);
 #endif

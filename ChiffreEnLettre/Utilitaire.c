@@ -18,7 +18,7 @@ int nombreDeChiffres(int valeur)
 
 
 
-int* separer(int valeur, int tranche, int* taille) {
+int* separer(long long int valeur, int tranche, int* taille) {
     int nombreChiffres = nombreDeChiffres(valeur);
     int* tableau = malloc(nombreChiffres);
     int puissance;
